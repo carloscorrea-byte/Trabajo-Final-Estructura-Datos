@@ -1,27 +1,236 @@
 [
-  {"id": 1, "titulo": "Clean Code", "autor": "Robert C. Martin", "categoria": "Algoritmos", "anio_publicacion": 2008, "total_ejemplares": 5, "ejemplares_disponibles": 3},
-  {"id": 2, "titulo": "El Arte de la Guerra", "autor": "Sun Tzu", "categoria": "Historia", "anio_publicacion": 2020, "total_ejemplares": 4, "ejemplares_disponibles": 4},
-  {"id": 3, "titulo": "Introducción a los Algoritmos", "autor": "Thomas Cormen", "categoria": "Algoritmos", "anio_publicacion": 2009, "total_ejemplares": 6, "ejemplares_disponibles": 2},
-  {"id": 4, "titulo": "JavaScript: The Good Parts", "autor": "Douglas Crockford", "categoria": "Desarrollo Web", "anio_publicacion": 2008, "total_ejemplares": 3, "ejemplares_disponibles": 1},
-  {"id": 5, "titulo": "Python Crash Course", "autor": "Eric Matthes", "categoria": "Programación", "anio_publicacion": 2019, "total_ejemplares": 7, "ejemplares_disponibles": 5},
-  {"id": 6, "titulo": "Diseño de Bases de Datos", "autor": "Abraham Silberschatz", "categoria": "SQL", "anio_publicacion": 2010, "total_ejemplares": 4, "ejemplares_disponibles": 2},
-  {"id": 7, "titulo": "MongoDB: The Definitive Guide", "autor": "Kristina Chodorow", "categoria": "NoSQL", "anio_publicacion": 2013, "total_ejemplares": 3, "ejemplares_disponibles": 3},
-  {"id": 8, "titulo": "React Up and Running", "autor": "Stoyan Stefanov", "categoria": "Desarrollo Web", "anio_publicacion": 2021, "total_ejemplares": 5, "ejemplares_disponibles": 4},
-  {"id": 9, "titulo": "Cálculo Diferencial", "autor": "James Stewart", "categoria": "Matemáticas", "anio_publicacion": 2015, "total_ejemplares": 8, "ejemplares_disponibles": 6},
-  {"id": 10, "titulo": "Física Universitaria", "autor": "Hugh Young", "categoria": "Física", "anio_publicacion": 2018, "total_ejemplares": 6, "ejemplares_disponibles": 4},
-  {"id": 11, "titulo": "Historia Universal", "autor": "Felipe Fernández-Armesto", "categoria": "Historia", "anio_publicacion": 2010, "total_ejemplares": 4, "ejemplares_disponibles": 2},
-  {"id": 12, "titulo": "Filosofía para la vida", "autor": "Jules Evans", "categoria": "Filosofía", "anio_publicacion": 2013, "total_ejemplares": 3, "ejemplares_disponibles": 3},
-  {"id": 13, "titulo": "Estructura de Datos en Python", "autor": "Lee Kent", "categoria": "Algoritmos", "anio_publicacion": 2020, "total_ejemplares": 5, "ejemplares_disponibles": 3},
-  {"id": 14, "titulo": "HTML y CSS: Diseño Web", "autor": "Jon Duckett", "categoria": "Desarrollo Web", "anio_publicacion": 2011, "total_ejemplares": 4, "ejemplares_disponibles": 2},
-  {"id": 15, "titulo": "SQL para principiantes", "autor": "Thomas Nield", "categoria": "SQL", "anio_publicacion": 2022, "total_ejemplares": 6, "ejemplares_disponibles": 5},
-  {"id": 16, "titulo": "NoSQL Distilled", "autor": "Martin Fowler", "categoria": "NoSQL", "anio_publicacion": 2012, "total_ejemplares": 3, "ejemplares_disponibles": 1},
-  {"id": 17, "titulo": "The Pragmatic Programmer", "autor": "David Thomas", "categoria": "Programación", "anio_publicacion": 2019, "total_ejemplares": 5, "ejemplares_disponibles": 4},
-  {"id": 18, "titulo": "Álgebra Lineal", "autor": "Gilbert Strang", "categoria": "Matemáticas", "anio_publicacion": 2016, "total_ejemplares": 7, "ejemplares_disponibles": 5},
-  {"id": 19, "titulo": "Mecánica Cuántica", "autor": "David Griffiths", "categoria": "Física", "anio_publicacion": 2017, "total_ejemplares": 4, "ejemplares_disponibles": 2},
-  {"id": 20, "titulo": "Historia de Colombia", "autor": "Marco Palacios", "categoria": "Historia", "anio_publicacion": 2014, "total_ejemplares": 5, "ejemplares_disponibles": 3},
-  {"id": 21, "titulo": "Ética Nicomáquea", "autor": "Aristóteles", "categoria": "Filosofía", "anio_publicacion": 2008, "total_ejemplares": 3, "ejemplares_disponibles": 3},
-  {"id": 22, "titulo": "FastAPI Modern Python", "autor": "Bill Lubanovic", "categoria": "Desarrollo Web", "anio_publicacion": 2023, "total_ejemplares": 4, "ejemplares_disponibles": 4},
-  {"id": 23, "titulo": "Aprende Git", "autor": "Scott Chacon", "categoria": "Programación", "anio_publicacion": 2014, "total_ejemplares": 5, "ejemplares_disponibles": 3},
-  {"id": 24, "titulo": "Estadística para Ingenieros", "autor": "Douglas Montgomery", "categoria": "Matemáticas", "anio_publicacion": 2012, "total_ejemplares": 6, "ejemplares_disponibles": 4},
-  {"id": 25, "titulo": "Design Patterns", "autor": "Gang of Four", "categoria": "Algoritmos", "anio_publicacion": 1994, "total_ejemplares": 4, "ejemplares_disponibles": 2}
+  {
+    "id": 1,
+    "titulo": "Clean Code",
+    "autor": "Robert C. Martin",
+    "categoria": "Algoritmos",
+    "anio_publicacion": 2008,
+    "total_ejemplares": 5,
+    "ejemplares_disponibles": 3
+  },
+  {
+    "id": 2,
+    "titulo": "El Arte de la Guerra",
+    "autor": "Sun Tzu",
+    "categoria": "Historia",
+    "anio_publicacion": 2020,
+    "total_ejemplares": 4,
+    "ejemplares_disponibles": 4
+  },
+  {
+    "id": 3,
+    "titulo": "Introducción a los Algoritmos",
+    "autor": "Thomas Cormen",
+    "categoria": "Algoritmos",
+    "anio_publicacion": 2009,
+    "total_ejemplares": 6,
+    "ejemplares_disponibles": 2
+  },
+  {
+    "id": 4,
+    "titulo": "JavaScript: The Good Parts",
+    "autor": "Douglas Crockford",
+    "categoria": "Desarrollo Web",
+    "anio_publicacion": 2008,
+    "total_ejemplares": 3,
+    "ejemplares_disponibles": 1
+  },
+  {
+    "id": 5,
+    "titulo": "Python Crash Course",
+    "autor": "Eric Matthes",
+    "categoria": "Programación",
+    "anio_publicacion": 2019,
+    "total_ejemplares": 7,
+    "ejemplares_disponibles": 5
+  },
+  {
+    "id": 6,
+    "titulo": "Diseño de Bases de Datos",
+    "autor": "Abraham Silberschatz",
+    "categoria": "SQL",
+    "anio_publicacion": 2010,
+    "total_ejemplares": 4,
+    "ejemplares_disponibles": 2
+  },
+  {
+    "id": 7,
+    "titulo": "MongoDB: The Definitive Guide",
+    "autor": "Kristina Chodorow",
+    "categoria": "NoSQL",
+    "anio_publicacion": 2013,
+    "total_ejemplares": 3,
+    "ejemplares_disponibles": 3
+  },
+  {
+    "id": 8,
+    "titulo": "React Up and Running",
+    "autor": "Stoyan Stefanov",
+    "categoria": "Desarrollo Web",
+    "anio_publicacion": 2021,
+    "total_ejemplares": 5,
+    "ejemplares_disponibles": 4
+  },
+  {
+    "id": 9,
+    "titulo": "Cálculo Diferencial",
+    "autor": "James Stewart",
+    "categoria": "Matemáticas",
+    "anio_publicacion": 2015,
+    "total_ejemplares": 8,
+    "ejemplares_disponibles": 6
+  },
+  {
+    "id": 10,
+    "titulo": "Física Universitaria",
+    "autor": "Hugh Young",
+    "categoria": "Física",
+    "anio_publicacion": 2018,
+    "total_ejemplares": 6,
+    "ejemplares_disponibles": 4
+  },
+  {
+    "id": 11,
+    "titulo": "Historia Universal",
+    "autor": "Felipe Fernández-Armesto",
+    "categoria": "Historia",
+    "anio_publicacion": 2010,
+    "total_ejemplares": 4,
+    "ejemplares_disponibles": 2
+  },
+  {
+    "id": 12,
+    "titulo": "Filosofía para la vida",
+    "autor": "Jules Evans",
+    "categoria": "Filosofía",
+    "anio_publicacion": 2013,
+    "total_ejemplares": 3,
+    "ejemplares_disponibles": 3
+  },
+  {
+    "id": 13,
+    "titulo": "Estructura de Datos en Python",
+    "autor": "Lee Kent",
+    "categoria": "Algoritmos",
+    "anio_publicacion": 2020,
+    "total_ejemplares": 5,
+    "ejemplares_disponibles": 3
+  },
+  {
+    "id": 14,
+    "titulo": "HTML y CSS: Diseño Web",
+    "autor": "Jon Duckett",
+    "categoria": "Desarrollo Web",
+    "anio_publicacion": 2011,
+    "total_ejemplares": 4,
+    "ejemplares_disponibles": 2
+  },
+  {
+    "id": 15,
+    "titulo": "SQL para principiantes",
+    "autor": "Thomas Nield",
+    "categoria": "SQL",
+    "anio_publicacion": 2022,
+    "total_ejemplares": 6,
+    "ejemplares_disponibles": 5
+  },
+  {
+    "id": 16,
+    "titulo": "NoSQL Distilled",
+    "autor": "Martin Fowler",
+    "categoria": "NoSQL",
+    "anio_publicacion": 2012,
+    "total_ejemplares": 3,
+    "ejemplares_disponibles": 1
+  },
+  {
+    "id": 17,
+    "titulo": "The Pragmatic Programmer",
+    "autor": "David Thomas",
+    "categoria": "Programación",
+    "anio_publicacion": 2019,
+    "total_ejemplares": 5,
+    "ejemplares_disponibles": 4
+  },
+  {
+    "id": 18,
+    "titulo": "Álgebra Lineal",
+    "autor": "Gilbert Strang",
+    "categoria": "Matemáticas",
+    "anio_publicacion": 2016,
+    "total_ejemplares": 7,
+    "ejemplares_disponibles": 5
+  },
+  {
+    "id": 19,
+    "titulo": "Mecánica Cuántica",
+    "autor": "David Griffiths",
+    "categoria": "Física",
+    "anio_publicacion": 2017,
+    "total_ejemplares": 4,
+    "ejemplares_disponibles": 2
+  },
+  {
+    "id": 20,
+    "titulo": "Historia de Colombia",
+    "autor": "Marco Palacios",
+    "categoria": "Historia",
+    "anio_publicacion": 2014,
+    "total_ejemplares": 5,
+    "ejemplares_disponibles": 3
+  },
+  {
+    "id": 21,
+    "titulo": "Ética Nicomáquea",
+    "autor": "Aristóteles",
+    "categoria": "Filosofía",
+    "anio_publicacion": 2008,
+    "total_ejemplares": 3,
+    "ejemplares_disponibles": 3
+  },
+  {
+    "id": 22,
+    "titulo": "FastAPI Modern Python",
+    "autor": "Bill Lubanovic",
+    "categoria": "Desarrollo Web",
+    "anio_publicacion": 2023,
+    "total_ejemplares": 4,
+    "ejemplares_disponibles": 4
+  },
+  {
+    "id": 23,
+    "titulo": "Aprende Git",
+    "autor": "Scott Chacon",
+    "categoria": "Programación",
+    "anio_publicacion": 2014,
+    "total_ejemplares": 5,
+    "ejemplares_disponibles": 3
+  },
+  {
+    "id": 24,
+    "titulo": "Estadística para Ingenieros",
+    "autor": "Douglas Montgomery",
+    "categoria": "Matemáticas",
+    "anio_publicacion": 2012,
+    "total_ejemplares": 6,
+    "ejemplares_disponibles": 4
+  },
+  {
+    "id": 25,
+    "titulo": "Design Patterns",
+    "autor": "Gang of Four",
+    "categoria": "Algoritmos",
+    "anio_publicacion": 1994,
+    "total_ejemplares": 4,
+    "ejemplares_disponibles": 2
+  },
+  {
+    "id": 26,
+    "titulo": "Detrás del último no hay nadie",
+    "autor": "Leidy Tatiana Hernandez",
+    "categoria": "Historia",
+    "anio_publicacion": 1999,
+    "total_ejemplares": 100,
+    "ejemplares_disponibles": 52
+  }
 ]
