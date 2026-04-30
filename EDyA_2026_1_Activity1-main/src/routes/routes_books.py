@@ -35,7 +35,7 @@ def ordenar_libros(
     return books_service.ordenar_libros(campo, algoritmo)
 
 @router.get("/categorias/arbol")
-def obtener_arbol_categorias():
+def obtener_libro_categorias():
     return books_service.obtener_arbol_categorias()
 
 @router.get("/{libro_id}", response_model=Libro)
