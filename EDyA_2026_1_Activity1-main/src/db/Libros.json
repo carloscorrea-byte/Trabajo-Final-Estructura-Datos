@@ -3,7 +3,7 @@
     "id": 1,
     "titulo": "Clean Code",
     "autor": "Robert C. Martin",
-    "categoria": "Algoritmos",
+    "categoria": "Programación",
     "anio_publicacion": 2008,
     "total_ejemplares": 5,
     "ejemplares_disponibles": 3
