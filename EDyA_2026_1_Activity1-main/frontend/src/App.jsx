@@ -1,121 +1,166 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { useState, useEffect } from 'react'
+import { BookMarked } from 'lucide-react'
 import './App.css'
+import LibrosTabla from './components/LibrosTabla'
+import LibroFormulario from './components/LibroFormulario'
+import Buscador from './components/Buscador'
+import Ordenamiento from './components/Ordenamiento'
+import ArbolCategorias from './components/ArbolCategorias'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [vista, setVista] = useState('catalogo')
+  const [libros, setLibros] = useState([])
+  const [libroEditar, setLibroEditar] = useState(null)
+  const [mensaje, setMensaje] = useState(null)
+  const [cargando, setCargando] = useState(true)
+
+  const cargarLibros = async () => {
+    setCargando(true)
+    try {
+      const res = await fetch('http://localhost:8000/libros/')
+      const data = await res.json()
+      setLibros(data)
+    } catch {
+      setMensaje({ tipo: 'error', texto: 'No se pudo conectar con el servidor.' })
+    } finally {
+      setCargando(false)
+    }
+  }
+
+  useEffect(() => {
+    cargarLibros()
+  }, [])
+
+  const mostrarMensaje = (tipo, texto) => {
+    setMensaje({ tipo, texto })
+    setTimeout(() => setMensaje(null), 3000)
+  }
+
+  const handleEditar = (libro) => {
+    setLibroEditar(libro)
+    setVista('formulario')
+  }
+
+  const handleEliminar = async (id) => {
+    if (!window.confirm('¿Seguro que deseas eliminar este libro?')) return
+    try {
+      const res = await fetch(`http://localhost:8000/libros/${id}`, { method: 'DELETE' })
+      if (res.ok) {
+        mostrarMensaje('success', 'Libro eliminado correctamente.')
+        cargarLibros()
+      }
+    } catch {
+      mostrarMensaje('error', 'Error al eliminar el libro.')
+    }
+  }
+
+  const handlePrestar = async (id) => {
+    try {
+      const res = await fetch(`http://localhost:8000/libros/${id}/prestar`, { method: 'POST' })
+      const data = await res.json()
+      if (res.ok) {
+        mostrarMensaje('success', data.mensaje)
+        cargarLibros()
+      } else {
+        mostrarMensaje('error', data.detail)
+      }
+    } catch {
+      mostrarMensaje('error', 'Error al realizar el préstamo.')
+    }
+  }
+
+  const handleGuardar = () => {
+    mostrarMensaje('success', libroEditar ? 'Libro actualizado.' : 'Libro registrado.')
+    setLibroEditar(null)
+    setVista('catalogo')
+    cargarLibros()
+  }
+
+  const handleCancelar = () => {
+    setLibroEditar(null)
+    setVista('catalogo')
+  }
+
+  const navItems = [
+    { id: 'catalogo', label: '📚 Catálogo' },
+    { id: 'formulario', label: '➕ Registrar' },
+    { id: 'buscar', label: '🔍 Buscar' },
+    { id: 'ordenar', label: '↕️ Ordenar' },
+    { id: 'categorias', label: '🌳 Categorías' },
+  ]
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
+    <div className="app">
+      <header className="header">
+        <BookMarked size={36} />
         <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
+          <h1>Biblioteca Académica</h1>
+          <p>Sistema de Gestión y Consulta — Estructuras de Datos y Algoritmos</p>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      </header>
 
-      <div className="ticks"></div>
+      <nav className="nav">
+        {navItems.map(item => (
+          <button
+            key={item.id}
+            className={vista === item.id ? 'active' : ''}
+            onClick={() => { setVista(item.id); setLibroEditar(null) }}
+          >
+            {item.label}
+          </button>
+        ))}
+      </nav>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <main className="main">
+        {mensaje && (
+          <div className={`alert alert-${mensaje.tipo === 'error' ? 'error' : 'success'}`}>
+            {mensaje.texto}
+          </div>
+        )}
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+        {vista === 'catalogo' && (
+          <div className="card">
+            <h2>Catálogo de Libros ({libros.length})</h2>
+            {cargando ? (
+              <p className="loading">Cargando libros...</p>
+            ) : (
+              <LibrosTabla
+                libros={libros}
+                onEditar={handleEditar}
+                onEliminar={handleEliminar}
+                onPrestar={handlePrestar}
+              />
+            )}
+          </div>
+        )}
+
+        {vista === 'formulario' && (
+          <LibroFormulario
+            libroEditar={libroEditar}
+            onGuardar={handleGuardar}
+            onCancelar={handleCancelar}
+          />
+        )}
+
+        {vista === 'buscar' && (
+          <Buscador
+            onEditar={handleEditar}
+            onEliminar={handleEliminar}
+            onPrestar={handlePrestar}
+          />
+        )}
+
+        {vista === 'ordenar' && (
+          <Ordenamiento
+            onEditar={handleEditar}
+            onEliminar={handleEliminar}
+            onPrestar={handlePrestar}
+          />
+        )}
+
+        {vista === 'categorias' && <ArbolCategorias />}
+      </main>
+    </div>
   )
 }
 
